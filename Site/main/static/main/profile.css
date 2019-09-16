@@ -1,0 +1,213 @@
+.head__site {
+    background: url(../img/bgBanner.jpg) no-repeat center top / cover;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+.User__info {
+    padding: 100px;
+}
+
+.user__box {
+    display: flex;
+    margin-left: 10%;
+
+}
+
+
+.user__image__box {
+    width: 300px;
+    height: 300px;
+    background: #da532c;
+    border: 3px solid #656565;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
+}
+
+
+.user__image {
+    /* width: 400px; */
+    height: 410px;
+}
+
+.line__image__change {
+    width: 40px;
+    height: 2px;
+    background: #da532c;
+    margin: 10px;
+}
+
+.profile__data__change {
+    /* color: #da532c; */
+    padding: 80px 0;
+    background: #f5f5f5;
+
+}
+
+.change_form {
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.label_for_img_input {
+    position: relative;
+    border: 2px solid #3f3f3f;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 50px;
+    width: 200px;
+    padding: 3px;
+    margin: 5px 0 15px 0;
+    overflow: hidden;
+    color: #3f3f3f;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    transition: all .2s;
+}
+
+
+.label_for_img_input:hover {
+    color: #da532c;
+    background: #3f3f3f;
+    transition: all .2s;
+}
+
+.upload_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* .change_form #id_img {
+    width: 194px;
+    padding: 0px;
+    cursor: pointer;
+}*/
+
+.change_form #id_first_name, #id_last_name {
+    border: 2px solid #3f3f3f;
+    border-radius: 4px;
+    font-size: 24px;
+    height: 30px;
+    width: 300px;
+    padding: 3px;
+    margin: 5px 0 15px 0;
+
+} 
+
+.btn__prifile__image__change {
+    font-size: 15px;
+    color: #da532c;
+    border: 3px solid #3f3f3f;
+    width: 300px;
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #3f3f3f;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all .2s;
+}
+
+.btn__prifile__image__change:hover {
+    background: rgb(51, 50, 50);
+    transition: all .2s;
+}
+
+.user__info__box {
+    margin-left: 100px;
+    text-transform: uppercase;
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.username__box {
+    position: relative;
+    
+}
+
+.username {
+    color: #252424;
+    font-size: 43px;
+}
+
+.who__is__indicate__line {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #85e197;
+    z-index: 1;
+}
+
+
+.who__is__box {
+    list-style: none;
+    margin-top: 20px;
+
+}
+
+.user__info__box span {
+    color: #da532c;
+}
+
+.who__is__item {
+    margin: 5px 0  5px 15px;
+
+}
+
+.who__is {
+    margin: 25px 0 5px 0;
+}
+
+.change__user__info {
+    width: 300px;
+    height: 40px;
+    background: rgba(222, 99, 65, 90%);
+    text-transform: uppercase;
+    color: #252424;
+    font-family: 'PT Sans Narrow', sans-serif;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-size: 19px;
+    position: absolute;
+    transition: all .2s;
+}
+
+.change__user__info:hover {
+    background: rgba(222, 99, 65, 100%);
+    color: #1b1b1b;
+    width: 330px;
+    transition: all .2s;
+}
+
+/* * {
+    border: 1px solid red;
+} */

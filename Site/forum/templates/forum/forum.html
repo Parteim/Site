@@ -1,0 +1,92 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/forum.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/forum.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__forum">Форум</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="Forum">
+
+    <div class="container adaptation_forum_box">
+        <div class="search__and__creation__self__post__button__box">
+            <form method="GET" class="form_for_search">
+                <input name="search" id="search" type="text" class="search__post">
+                <button class="search_btn" type="submit"><i class="search__icon fas fa-search"></i></button>
+            </form>
+            {% if user.is_active %}
+            <a href="{% url 'create-post' %}" class="btn__create__self__post">Создать собственный пост</a>
+            {% endif %}
+        </div>
+        <div class="main__box__forum">
+
+            {% for post in Post %}
+
+            <div class="post__example">
+                <div class="post__image__box">
+                    <div class="line__indicate__who__is__user"></div>
+                    <img src="{{ post.author.profile.img.url }}" alt="{{ post.image.url }}" class="post__image">
+                    <div class="user__post__info">
+                        <a class="link__for__user__profile" href="#">
+                            <h3 id="user__name" class="user__name">
+                                {{ post.author.first_name }}
+                                <span class="last_name__color__change">{{ post.author.last_name }}</span>
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="main__post__box">
+                    <div class="post__titl__and__date__publication">
+                        <a href="{% url 'post-instance' post.id %}"><h2 class="post__title">{{ post.title }}</h2></a>
+                        <p class="post__date__publication">{{ post.date|date:"j F Y" }}</p>
+                    </div>
+                    <p class="post__texst">
+                        {{ post.text }}
+                    </p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+        {% if is_paginated %}
+        {% if page_obj.has_previous %}
+        <a href="/" class="btn btn-outline-light">В начало</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-light">Предыдущая страница</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number%}
+        <button class="btn btn-warning">{{ num }}</button>
+        {% elif num > page.obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a href="?page={{ num }}" class="btn btn-outline-light">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-light">Следующая страница</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-light">последняя</a>
+        {% endif %}
+        {% endif %}
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block for_scripts %}
+<script src="{% static 'js/forum.js' %}"></script>
+{% endblock %}

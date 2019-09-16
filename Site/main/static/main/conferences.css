@@ -1,0 +1,15 @@
+.header__main__title__contests {
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: #252424;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-55%, -50%);
+    font-size: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+ }
+
+.Conferences {
+    padding: 80px 0;
+}

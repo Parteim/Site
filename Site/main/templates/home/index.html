@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500i,600,700|PT+Sans+Narrow:400,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/home.css'%}">
+    <link rel="stylesheet" href="{% static 'main/adaptive_CSS/main.css'%}">
+    <link rel="stylesheet" href="{% static 'main/adaptive_CSS/home.css'%}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+<header class="head__site">
+
+    <div class="nav__bar" id="nav__bar">
+        <div class="container main__nav__bar" id="main__nav__bar">
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="btn__sign__in">
+                <i class="fas fa-user"></i>
+                {{ user.first_name }}
+            </a>
+            <a href="{% url 'logout' %}" class="btn__sign__in">
+                Выйти
+            </a>
+            {% else %}
+            <a href="{% url 'sign_in' %}" class="btn__sign__in">
+                <i class="fas fa-user"></i>
+                Войти
+            </a>
+            {% endif %}
+            <div class="adaptive_nav_box">
+                <div class="adaptive_nav_line"></div>
+                <div class="adaptive_nav_line"></div>
+                <div class="adaptive_nav_line"></div>
+            </div>
+            <nav class="main__bloc__nav" id="all_link_in_menu">
+                <ul>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="item__main__nav"><a class="item__main__nav__link"
+                                                   href="{% url 'contests' %}">Конкурсы</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'conferences' %}">Конференции</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">worldskills</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">Экзамены</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">Информация</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'forum' %}">Форум</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'gallery' %}">Галерея</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% if messages %}
+        {% for mess in messages %}
+        <div class="alert">{{ mess }}</div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="header__main__title__box">
+        <h1 class="header__main__title">Main title</h1>
+    </div>
+
+</header>
+
+<div class="separator">
+    <span class="little__line"></span>
+</div>
+
+
+<section class="Ads__box">
+    <article class="container ads">
+
+        {% if ads %}
+        <div class="box__title">
+            <div class="ads__title__small__line"></div>
+            <h2 class="ads__title">{{ ads.title }}</h2>
+            <div class="ads__title__big__line"></div>
+        </div>
+        <div class="ads__help__box">
+            <p class="ads__text">
+                {{ ads.text|striptags|truncatechars:300 }}
+            </p>
+            <div class="ads__image__box">
+                <img class="ads__image" src="{{ ads.img.url }}" alt="ads_img">
+            </div>
+        </div>
+        {% endif %}
+
+    </article>
+</section>
+
+
+<section class="News">
+
+    <div class="container news__box__helper">
+        <div class="news__icon__box">
+            <div class="news__top__line"></div>
+            <a href="{% url 'news' %}"><i class="fas fa-newspaper"></i></a>
+            <div class="news__top__line"></div>
+        </div>
+
+        <article class="news__box">
+            <a href="{% url 'news' %}"><h2 class="main__news__title">Новости</h2></a>
+            <p class="news__title__text">
+                Здесь ты можешь узнаешь о последних событиях
+            </p>
+            <div class="news__body">
+
+                {% for item in news %}
+                <div class="news__item">
+                    <div class="news__img__box">
+                        <a href="{% url 'news-instance' item.id %}">
+                            <img class="news__img" src="{{ item.img.url }}" alt="news__img">
+                        </a>
+                        <!--                        <div class="news__img__info">-->
+                        <!--                            <div class="news__separate__line">-->
+                        <!--                                <div class="news__separate__line__inside"></div>-->
+                        <!--                            </div>-->
+                        <!--                            <p class="news__img__description" id="news__img__description">-->
+                        <!--                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,-->
+                        <!--                                sed do eiusmod tempor incididunt ut labore et dolore magna-->
+                        <!--                                aliqua. Quis ipsum suspendisse-->
+                        <!--                                ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.-->
+                        <!--                            </p>-->
+                        <!--                        </div>-->
+                    </div>
+
+                    <div class="title__news__box">
+                        <a href="{% url 'news-instance' item.id %}">
+                            <h3 class="news__title">{{ item.title }}</h3>
+                        </a>
+                        <p class="news__date__publication">Дата публикации: {{ item.date|date:"j F Y" }}</p>
+                    </div>
+                    <p class="news__text">
+                        {{ item.text|striptags|truncatechars:300 }}
+                    </p>
+                </div>
+                {% endfor %}
+                <!--                    <div class="news__item">-->
+                <!--                        <img class="news__img" src="{{ post.img.url }}" alt="news__img">&lt;!&ndash;&ndash;&gt;-->
+                <!--                        <h3 class="news__title">{{ post.title }}</h3>-->
+                <!--                        <p class="news__text">-->
+                <!--                            {{ post.text }}-->
+                <!--                        </p>-->
+
+            </div>
+
+        </article>
+    </div>
+
+</section>
+
+<section class="Recipe">
+
+    <div class="container recipe__box">
+        <div class="recipe__img_box">
+            <a href="{% url 'recipe-instance' recipe.id %}">
+                <img class="recipe__img" src="{{ recipe.img.url }}" alt="dish">
+            </a>
+        </div>
+        <div class="box__recipe__helper">
+            <div class="icon__box__recipe">
+                <div class="recipe__linear"></div>
+                <a href="{% url 'recipe' %}"><i class="fas fa-concierge-bell"></i></a>
+                <div class="recipe__linear"></div>
+            </div>
+            <a href="{% url 'recipe-instance' recipe.id %}">
+                <h3 class="recipe__title">{{ recipe.title }}</h3>
+            </a>
+            <p class="text__recipe">
+                {{ recipe.text|striptags|truncatechars:600 }}
+            </p>
+            <a href="{% url 'recipe' %}" class="btn__more__recipes">Больше Рецептов</a>
+        </div>
+    </div>
+
+</section>
+
+<section class="Gallery">
+
+    <div class="container gallery__box">
+        <div class="icon__box__gallery">
+            <div class="linear__gallery"></div>
+            <i class="fas fa-images"></i>
+            <div class="linear__gallery"></div>
+        </div>
+        <a href="{% url 'gallery' %}" class="btn__gallery">Галерея</a>
+        <div class="slider__box__galery">
+            <div class="item__gallery__slider"><a href="{% url 'gallery'  %}#{{ photo_one.id }}"><img
+                    src="{{ photo_one.img.url }}" alt="img"></a></div>
+            <a href="{% url 'gallery'  %}#{{ photo_two.id }}">
+                <div id="activImgGallery" class="item__gallery__slider__active"><img src="{{ photo_two.img.url }}"
+                                                                                     alt="img"></div>
+            </a>
+            <div class="item__gallery__slider"><a href="{% url 'gallery'  %}#{{ photo_three.id }}"><img
+                    src="{{ photo_three.img.url }}" alt="img"></a></div>
+        </div>
+    </div>
+
+</section>
+
+
+<footer class="Main__foter__on__a__site">
+
+    <div class="container footer__site__box__helper">
+        <div class="site__map__box">
+            <p class="sit__footer__title title__site__map">Карта сайта</p>
+            <ul class="site__map">
+                <li class="site__map__link"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="site__map__link"><a href="{% url 'contests' %}">Конкурсы</a></li>
+                <li class="site__map__link"><a href="{% url 'conferences' %}">Конференции</a></li>
+                <li class="site__map__link"><a href="#">worldskills</a></li>
+                <li class="site__map__link"><a href="#">Экзамены</a></li>
+                <li class="site__map__link"><a href="#">Информация</a></li>
+                <li class="site__map__link"><a href="{% url 'forum' %}">Форум</a></li>
+                <li class="site__map__link"><a href="{% url 'gallery' %}">Галерея</a></li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <p class="sit__footer__title our__contacts__title">Наши контакты</p>
+            <div class="contacts__box">
+                <div class="contacts__item">
+                    <i class="fas fa-phone"></i>
+                    <p class="contacts__number">+7(549)564-85-85</p>
+                </div>
+                <div class="contacts__item">
+                    <i class="fas fa-envelope"></i>
+                    <p class="contacts__email">e-mail: fff@mail.ru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="linear__footer"></div>
+
+    <p class="footer__description__date">2019</p>
+
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/news.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/news.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__news">Рецепты</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="News">
+
+    <div class="container">
+
+        {% for recipe in Recipe %}
+
+
+        <div class="news__item">
+            <div class="news__image__box">
+                <a href="{% url 'recipe-instance' recipe.id %}">
+                    <img class="news__image" src="{{ recipe.img.url }}" alt="{{ recipe.title }}">
+                </a>
+            </div>
+            <div class="news__info__box">
+                <div class="news__box__title">
+                    <a href="{% url 'recipe-instance' recipe.id %}">
+                        <h2 class="news__title">
+                            {{ recipe.title }}
+                        </h2>
+                    </a>
+                    <p class="date__news__publication">{{ recipe.date|date:"j F Y" }}</p>
+                </div>
+                <p class="news__text">
+                    {{ recipe.text|striptags|truncatechars:300 }}
+                </p>
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+{% endblock %}

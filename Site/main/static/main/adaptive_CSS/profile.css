@@ -1,0 +1,25 @@
+@media (max-width: 1024px) {
+
+    .User__info {
+        padding: 50px 10%;
+    }
+
+    @media (max-width: 450px) {
+
+        .user__box {
+            display: flex;
+            flex-direction: column;
+
+            margin: 0;
+        }
+
+        .user__info__box {
+            margin: 20px 0;
+        }
+
+        .change__user__info:hover {
+            width: 300px;
+        }
+
+    }
+}

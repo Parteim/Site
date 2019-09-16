@@ -1,0 +1,108 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/news_instance.css'%}">
+<link rel="stylesheet" href="{% static 'main/forum_instance.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/adaptive_news_instance.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="News">
+
+    <div class="container instance_forum">
+
+
+        <div class="news__item">
+
+
+            {% if post.img.url != '' %}
+
+            <div class="news__image__box">
+                <img class="news__image" src="{{ post.img.url }}" alt="{{ post.title }}">
+            </div>
+
+            {% endif %}
+
+
+            <div class="news__info__box">
+                <div class="news__box__title">
+                    <h1 class="news__title">
+                        {{ post.title }}
+                    </h1>
+                    <p class="date__news__publication">{{ post.date|date:"j F Y" }}</p>
+                </div>
+                <p class="news__text">
+                    {{ post.text }}
+                </p>
+
+                {% if post.file.url != '' %}
+                <a href="{{ post.file.url }}">file</a>
+                {% endif %}
+
+            </div>
+            <div class="separate__line__forum"></div>
+        </div>
+
+        <div id="main__comment__container">
+
+            {% for com in Comment %}
+
+            <div class="comment__instance">
+                <div class="img__box__for__comment">
+                    <img src="{{ com.author.profile.img.url }}" alt="com.author" class="author__image">
+                </div>
+                <div class="comment__container">
+                    <div class="sender__name__and__date">
+                        <h3 class="sender__name">{{ com.author.first_name }} <span> {{ com.author.last_name }}</span>
+                        </h3>
+                        <p class="date__sending__comment">{{ com.date|date:"j F Y H:i" }}</p>
+                    </div>
+                    <p class="text__comment">{{ com.text }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% if user.is_active %}
+
+        <form method="POST" class="comment__form">
+            {% csrf_token %}
+            {{ form.text }}
+            <div class="send__button__box__comment">
+                <input type="submit" class="send__comment" id="add_comment">
+            </div>
+        </form>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+{% block jquery %}
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js">
+    $(document).ready(function(){
+        $('#add_comment').on('click', function(e){
+            e.preventDefault();
+            console.log('hhhh');
+        })
+    })
+
+</script>
+
+{% endblock %}

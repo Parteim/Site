@@ -1,0 +1,40 @@
+@media (max-width: 1024px) {
+
+    .News {
+        padding: 50px 0;
+    }
+
+    .news__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 30px 0;
+    }
+
+    .news__image__box {
+        width: 90%;
+        margin: 0;
+    }
+
+    .news__text {
+        width: 100%;
+    }
+
+    .news__info__box {
+        width: 89%;
+    }
+
+    @media (max-width: 450px) {
+        
+        .news__box__title {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .date__news__publication {
+            margin: 10px 0 0 0;
+        }
+
+    }
+}

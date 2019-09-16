@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|PT+Sans+Narrow:400,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/main.css'%}">
+    <link rel="stylesheet" href="{% static 'main/adaptive_CSS/main.css'%}">
+    {% block link__css %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    {% block title_page %}
+    <title>{{ title }}</title>
+    {% endblock %}
+</head>
+<body>
+<header class="head__site">
+
+    <div class="nav__bar" id="nav__bar">
+        <div class="container main__nav__bar" id="main__nav__bar">
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="btn__sign__in">
+                <i class="fas fa-user"></i>
+                {{ user.first_name }}
+            </a>
+            <a href="{% url 'logout' %}" class="btn__sign__in">
+                Выйти
+            </a>
+            {% else %}
+            <a href="{% url 'sign_in' %}" class="btn__sign__in">
+                <i class="fas fa-user"></i>
+                Войти
+            </a>
+            {% endif %}
+            <div class="adaptive_nav_box">
+                <div class="adaptive_nav_line"></div>
+                <div class="adaptive_nav_line"></div>
+                <div class="adaptive_nav_line"></div>
+            </div>
+            <nav class="main__bloc__nav" id="all_link_in_menu">
+                <ul>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="item__main__nav"><a class="item__main__nav__link"
+                                                   href="{% url 'contests' %}">Конкурсы</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'conferences' %}">Конференции</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">worldskills</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">Экзамены</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">Информация</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'forum' %}">Форум</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'gallery' %}">Галерея</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% if messages %}
+        {% for mess in messages %}
+        <div class="alert">{{ mess }}</div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    {% block title__section %}
+    {% endblock %}
+
+</header>
+
+<!--<section class="Sign_in" id="Sign_in">-->
+
+<!--    <h2 class="sign__in__title">Войти</h2>-->
+<!--           <form method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            {{ form }}-->
+<!--               <div class="form__sign__in__button__box">-->
+<!--        <button class="btn__form__sign__in">Войти</button>-->
+<!--        <a href="{% url 'sign_up'  %}" class="btn__form__sign__in">Регистрация</a>-->
+<!--    </div>-->
+<!--        </form>-->
+<!--    <input class="sign__in__input" type="email">-->
+<!--    <input class="sign__in__input" type="password">-->
+<!--    <div class="form__sign__in__button__box">-->
+<!--        <button class="btn__form__sign__in">Войти</button>-->
+<!--        <a href="{% url 'sign_up'  %}" class="btn__form__sign__in">Регистрация</a>-->
+<!--    </div>-->
+
+<!--</section>-->
+
+{% block main_section %}
+{% endblock %}
+
+<footer class="Main__foter__on__a__site">
+
+    <div class="container footer__site__box__helper">
+        <div class="site__map__box">
+            <p class="sit__footer__title title__site__map">Карта сайта</p>
+            <ul class="site__map">
+                <li class="site__map__link"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="site__map__link"><a href="{% url 'contests' %}">Конкурсы</a></li>
+                <li class="site__map__link"><a href="{% url 'conferences' %}">Конференции</a></li>
+                <li class="site__map__link"><a href="#">worldskills</a></li>
+                <li class="site__map__link"><a href="#">Экзамены</a></li>
+                <li class="site__map__link"><a href="#">Информация</a></li>
+                <li class="site__map__link"><a href="{% url 'forum' %}">Форум</a></li>
+                <li class="site__map__link"><a href="{% url 'gallery' %}">Галерея</a></li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <p class="sit__footer__title our__contacts__title">Наши контакты</p>
+            <div class="contacts__box">
+                <div class="contacts__item">
+                    <i class="fas fa-phone"></i>
+                    <p class="contacts__number">+7(549)564-85-85</p>
+                </div>
+                <div class="contacts__item">
+                    <i class="fas fa-envelope"></i>
+                    <p class="contacts__email">e-mail: fff@mail.ru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="linear__footer"></div>
+
+    <p class="footer__description__date">2019</p>
+
+</footer>
+{% block for_scripts %}
+{% endblock %}
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+{% block jquery %}
+
+
+{% endblock %}
+
+</body>
+</html>

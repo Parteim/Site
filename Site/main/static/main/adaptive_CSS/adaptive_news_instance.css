@@ -1,0 +1,58 @@
+@media (max-width: 1024px) {
+
+    .News {
+        padding: 50px 0;
+    }
+
+    .news__image__box {
+        width: 98%;
+    }
+
+    .text__comment__form {
+        width: 95%;
+    }
+
+    .send__button__box__comment {
+        width: 95%;
+    }
+
+    .news__info__box {
+        width: 95%;
+    }
+
+    .news__item {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .text__comment {
+        width: 95%;
+    }
+
+    .date__sending__comment {
+        font-size: 10px;
+    }
+
+    .comment__container {
+        width: 60%;
+        max-width: 400px;
+    }
+
+    .sender__name__and__date {
+        width: 100%;
+    }
+
+    .comment__instance {
+        width: 100%;
+    }
+
+    .instance_forum {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}

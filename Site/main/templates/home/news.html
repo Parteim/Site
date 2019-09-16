@@ -1,0 +1,58 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/news.css' %}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/news.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__news">Новости</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="News">
+
+    <div class="container">
+
+        {% for news in News %}
+
+
+        <div class="news__item">
+            <div class="news__image__box">
+                <a href="{% url 'news-instance' news.id %}">
+                    <img class="news__image" src="{{ news.img.url }}" alt="{{ news.title }}">
+                </a>
+            </div>
+            <div class="news__info__box">
+                <div class="news__box__title">
+                    <a href="{% url 'news-instance' news.id %}">
+                        <h2 class="news__title">
+                            {{ news.title }}
+                        </h2>
+                    </a>
+                    <p class="date__news__publication">{{ news.date|date:"j F Y" }}</p>
+                </div>
+                <p class="news__text">
+                    {{ news.text }}
+                </p>
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+{% endblock %}

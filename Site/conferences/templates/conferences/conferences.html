@@ -1,0 +1,36 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/conferences.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/conferences.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__contests">Конференции</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+<section class="Conferences">
+
+    <div class="container">
+
+
+
+    </div>
+
+</section>
+
+{% block for_scripts %}
+<!--<script src="{% static 'js/contests.js' %}" befer></script>-->
+{% endblock %}
+
+
+{% endblock %}

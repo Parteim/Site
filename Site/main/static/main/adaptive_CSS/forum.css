@@ -1,0 +1,93 @@
+@media (max-width: 1024px) {
+
+    .Forum {
+        padding: 50px 0;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .search__and__creation__self__post__button__box{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .search__post {
+        width: calc(100% - 55px);
+    }
+
+    .form_for_search {
+        width: 50%;
+    }
+
+    .btn__create__self__post {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    .post__texst {
+        width: 95%;
+    }
+
+    .adaptation_forum_box {
+        width: 100%;
+
+    }
+
+    .main__box__forum {
+        width: 70%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        margin: 0;
+    }
+
+    .post__example {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+
+        margin: 10px 0;
+        width: 90%;
+    }
+
+    .main__post__box {
+        width: 50%;
+        margin-left: 10%;
+    }
+
+    @media (max-width: 450px) {
+        .post__example {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .post__image__box {
+            width: 95%;
+        }
+
+        .post__titl__and__date__publication {
+            width: 94%;
+        }
+
+        .main__post__box {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            margin: 0;
+        }
+    }
+
+}

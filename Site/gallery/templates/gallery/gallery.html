@@ -1,0 +1,53 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/gallery.css' %}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__gallery">Галерея</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+<div id="reveal__img">
+
+        <img class="img_gallery__reveal" src="{{ photo.img.url }}" alt="{{ item.title }}">
+
+</div>
+
+<section class="Gallery">
+
+    <div class=" body__gallery ">
+
+        {% for photo in Photos %}
+
+        <div class="gallery__item">
+            <img id="{{ photo.id }}" class="img_gallery" src="{{ photo.img.url }}" alt="{{ item.title }}">
+            <div class="description__img">
+                <p class="date_post_img">{{ photo.date }}</p>
+                <p class="text__description">
+                    {{ photo.description }}
+                </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% block for_scripts %}
+<script src="{% static 'js/gallery.js' %}" befer></script>
+{% endblock %}
+
+
+{% endblock %}

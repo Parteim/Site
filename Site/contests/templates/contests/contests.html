@@ -1,0 +1,140 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/contests.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/contests.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__contests">Конкурсы</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section>
+    <div class="container upcoming__contests">
+        <h2 class="main__title__contests">Предстоящие<span> конкурсы</span></h2>
+        <div class="indicate__line__box"></div>
+        <div class="main__box__contests">
+
+            <div class="box__arrow">
+                <a id="arrow_left"><i class="contests__arrow fas fa-chevron-left"></i></a>
+                <a id="arrow_right"><i class="contests__arrow fas fa-chevron-right"></i></a>
+            </div>
+
+
+            <div class="slider_upcoming_contests">
+
+                {% for contest in contests %}
+
+                <div class="contests__body__box">
+
+                    <div class="box__img__contests">
+                        <img class="contests__img" src="{{ contest.img.url }}" alt="{{ contest.title }}">
+                        <p class="contest__start__day">{{ contest.date }}</p>
+                        <div class="btn__contests__nav__box">
+                            <a  target="_blank" href="{{ contest.full_information_about_contest.url }}" class="btn__contests__item">Больше <span> информации</span></a>
+                            <div class="line__btan__separate"></div>
+                            <a href="#" class="btn__contests__item">Принять <span> участие</span></a>
+                        </div>
+                    </div>
+                    <div class="box__description__contests">
+                        <a href="{% url 'contest-instance' contest.id %}">
+                            <h3 class="title__description__contests">{{ contest.title }}</h3>
+                        </a>
+                        <p class="text__description__contests">
+                            {{ contest.text }}
+                        </p>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+        <a href="{% url 'all-contests' %}" class="btn__contests__all_contests">Все конкурсы</a>
+    </div>
+</section>
+
+<section class="Winners">
+
+    <div class="container winners__main__box show__box">
+        <h2 class="title__winners">Победители</h2>
+        <!--        <div class="show__box">-->
+
+        <div class="winners__box" id="winners__box">
+
+            {% for winner in winners %}
+            <div class="winners__item">
+                <img class="winners__image" src="{{ winner.img.url }}" alt="winners">
+                <div class="winners__info">
+                    <h3 class="winners__name">{{ winner.first_name }} {{ winner.last_name }}</h3>
+                    <p class="winners__description">
+                        Победитель конкурса
+                        "{{ winner.title_contest.title }}"
+                    </p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <!--        </div>-->
+    </div>
+
+
+</section>
+
+
+<section class="Past__contests">
+
+
+    <div class="container past__contests__main__box">
+        <h2 class="past__contests__main__title">Прошедшие <span>конкурсы</span></h2>
+
+        {% for past_contest in past_contests %}
+
+        <div class="past__contests__box">
+            <div class="past__contests__image__box">
+                <a href="{% url 'past-contest-instance' past_contest.id %}">
+                    <img class="past__contests__image" src="{{ past_contest.img.url }}" alt=""
+                         class="{{ past_contest.title }}">
+                </a>
+            </div>
+            <div class="past__contests__information">
+                <div class="past__contests__title__and__date">
+                    <a href="{% url 'past-contest-instance' past_contest.id %}">
+                        <h3 class="past__contests__title">{{ past_contest.title }}</h3>
+                    </a>
+                    <p class="past__contests__date">{{ past_contest.date }}</p>
+                </div>
+                <p class="past__contests__text">
+                    {{ past_contest.text }}
+                </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+        <a href="{% url 'past-contests' %}" class="btn__past__contests">Все конкурсы</a>
+    </div>
+
+</section>
+
+{% block for_scripts %}
+<script src="{% static 'js/contests.js' %}" befer></script>
+{% endblock %}
+
+
+{% endblock %}

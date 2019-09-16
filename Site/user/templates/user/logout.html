@@ -1,0 +1,51 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/sign_up.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="Sign_up">
+
+    <div class="container ">
+        <div class="box__helper__sign__up">
+            <h2 class="title__sign__up">Вход на сайт</h2>
+        <form method="POST">
+<!--            {% csrf_token %}-->
+<!--            {{ form }}-->
+            <a href="{% url  'sign_in' %}" class="lin_sign_in">Войти</a>
+        </form>
+
+        <!--        <form class="entry__form__sign__up" action="#" method="POST">-->
+        <!--            <h1 class="title__sign__up">Регистрация</h1>-->
+        <!--            <input type="text" class="entry__item" placeholder="Имя">-->
+        <!--            <input type="text" class="entry__item" placeholder="Фамилия">-->
+        <!--            <input type="email" class="entry__item" placeholder="E-mail">-->
+        <!--            <input type="password" class="entry__item" placeholder="Пароль">-->
+        <!--            <input type="password" class="entry__item" placeholder="Повторить пароль">-->
+        <!--            <div class="btn__box__sign__up">-->
+        <!--                <p class="choos__who__is__description">Выберите кем вы являетесь (если ни один вариан те подходит то-->
+        <!--                    оставляйте поле пустым)-->
+        <!--                    <select class="who__is__choose" name="who__is" id="who__is__choose">-->
+        <!--                        <option class="who__is__choose__item" value="none">не указан</option>-->
+        <!--                        <option class="who__is__choose__item" value="student">Студент</option>-->
+        <!--                        <option class="who__is__choose__item" value="teacher">Учитель</option>-->
+        <!--                    </select>-->
+        <!--                </p>-->
+        <!--                <button class="dtn_sign_up">Зарегистрироваться</button>-->
+        <!--            </div>-->
+        <!--        </form>-->
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

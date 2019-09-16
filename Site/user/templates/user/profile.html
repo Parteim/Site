@@ -1,0 +1,54 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/profile.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/profile.css'%}">
+{% endblock %}
+
+{% block title_page %}
+<title>{{ user.first_name }}</title>
+{% endblock %}
+
+
+{% block main_section %}
+
+<section class="User__info">
+
+    <div class="container ">
+        <div class="user__box">
+            <div class="user__image__box">
+                <img class="user__image" src="{{ user.profile.img.url }}" alt="{{ user.first_name }}">
+                <!--                <div class="profile__image__change">-->
+                <!--                    <form class="profile__image__change" method="POST">-->
+                <!--                        <div class="line__image__change"></div>-->
+                <!--                        {% csrf_token %}-->
+                <!--                        {{ img_profile }}-->
+                <!--                        <button type="submit" class="btn__prifile__image__change">Сменить изображение</button>-->
+                <!--                    </form>-->
+                <!--                </div>-->
+            </div>
+            <div class="user__info__box">
+                <div class="username__box">
+                    <h1 class="username">{{ user.first_name }} {{ user.last_name }}</h1>
+                    <div class="who__is__indicate__line"></div>
+                </div>
+                <p class="user__email">E-mail: <span>{{ user.email }}</span></p>
+
+                <a class="change__user__info" href="{% url 'change-profile' %}">Редактировать профиль</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="Main__info__about__user">
+
+</section>
+
+
+{% endblock %}
+
+

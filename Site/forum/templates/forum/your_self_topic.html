@@ -1,0 +1,47 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/your_self_topic.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/adaptive_your_self_topic.css'%}">
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="Main__box__send__form">
+    <div class="container">
+        <form class="form__for__post__publication" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.title }}
+            {{ form.text }}
+            <!--            <input class="title item__post__form" type="text" placeholder="Заголовок">-->
+            <!--            <textarea class="text item__post__form" type="text" placeholder='Текст'> </textarea>-->
+            <div class="box__for__btn__and__upload__file item__post__form">
+                <div class="file__and__img">
+                    <label for="id_file" class="upload__file__label">
+                        {{ form.file }}
+                        <span>Файл</span>
+                        <i class="fas fa-file-upload"></i>
+                    </label>
+                    <label for="id_img" class="upload__file__label">
+                        {{ form.img }}
+                        <span>Изображение</span>
+                        <i class="fas fa-file-upload"></i>
+                    </label>
+                </div>
+                <button class="send__btn__post">Опубликовать</button>
+            </div>
+        </form>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+{% block for_scripts %}
+<script src="{% static 'js/forum.js' %}"></script>
+{% endblock %}

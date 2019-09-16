@@ -1,0 +1,29 @@
+
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/your_self_topic.css'%}">
+{% endblock %}
+
+
+
+{% block main_section %}
+
+
+
+<div class="comment-form-container">
+    <form class="form__for__post__publication" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value='Submit'>
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+{% block for_scripts %}
+<script src="{% static 'js/forum.js' %}"></script>
+{% endblock %}

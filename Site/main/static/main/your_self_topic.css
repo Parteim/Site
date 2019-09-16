@@ -1,0 +1,118 @@
+.Main__box__send__form {
+    padding: 80px 0;
+}
+
+.head__site {
+    height: 70px;
+    background: #e9e9e9;
+}
+
+.form__for__post__publication {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.item__post__form {
+    margin: 20px 0;
+}
+
+.title {
+    width: 800px;
+    height: 20px;
+    padding: 5px;
+    border: 2px solid #343437;
+    border-radius: 4px;
+    background: none;
+    font-size: 20px;
+}
+
+.text {
+    width: 800px;
+    height: 300px;
+    padding: 5px;
+    border: 2px solid #343437;
+    border-radius: 4px;
+    background: none;
+    text-align: left;
+    font-size: 20px;
+}
+
+.box__for__btn__and__upload__file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;;
+}
+
+.send__btn__post {
+    border: 0px solid #000;
+    background: #da532c;
+    text-transform: uppercase;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    font-size: 21px;
+    color: #e9e9e9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.send__btn__post:hover {
+    color: #f3f3f3;
+    width: 230px;
+    transition: all .2s;
+}
+
+.file__and__img {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.upload__file {
+    margin: 10px 0;
+}
+
+
+
+
+.upload__file__label {
+    position: relative;
+    border: 2px solid #3f3f3f;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    padding: 3px;
+    margin: 5px 0 15px 0;
+    overflow: hidden;
+    color: #3f3f3f;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    transition: all .2s;
+}
+
+
+.upload__file__label:hover {
+    color: #da532c;
+    background: #3f3f3f;
+    transition: all .2s;
+}
+
+.upload__file, .upload__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,98 @@
+@media (max-width: 1024px){
+
+
+    .upcoming__contests {
+        padding: 50px 0;
+        /* display: flex;
+        align-items: center; */
+    }
+
+    .main__title__contests, .past__contests__main__title {
+        text-align: center;
+
+        font-size: 32px;
+    }
+
+    .main__box__contests {
+        width: 100%;
+    }
+
+    .text__description__contests {
+        width: 98%;
+    }
+
+    .contests__body__box {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        margin: 10px 10px;
+    }
+
+    .box__arrow {
+        display: none;
+    }
+
+    .box__img__contests {
+        width: 98%;
+        min-width: 300px;
+
+        margin: 0;
+    
+    }
+
+    .btn__contests__item {
+        font-size: 14px;
+    }
+
+    .box__description__contests {
+        margin-top: 10px;
+    }
+
+
+    /* past contests */
+
+    .past__contests__box, .past__contests__information {
+        width: 98%;
+        margin: 0;
+    }
+
+    .past__contests__title__and__date {
+        width: 98%;
+    }
+
+    .past__contests__text {
+        width: 98%;
+    }
+
+    .past__contests__box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .winners__item {
+        margin: 0;
+    }
+
+    .past__contests__image__box {
+        width: 200px;
+        height: 200px;
+    }
+
+    @media (max-width: 450px){
+        .btn__past__contests, .btn__contests__all_contests {
+            width: 90%;
+        }
+
+        .btn__contests__all_contests:hover {
+            width: 99%;
+        }
+
+        .btn__past__contests:hover {
+            width: 99%;
+        }
+    }
+}

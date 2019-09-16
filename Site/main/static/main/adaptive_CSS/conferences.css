@@ -1,0 +1,11 @@
+@media (max-width: 1024px) {
+
+    .Conferences {
+        padding: 50px 0;
+    }
+
+    @media (max-width: 450px) {
+
+    }
+
+}

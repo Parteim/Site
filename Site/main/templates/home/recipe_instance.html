@@ -1,0 +1,46 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/news_instance.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/adaptive_news_instance.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="News">
+
+    <div class="container">
+
+
+        <div class="news__item">
+            <div class="news__image__box">
+                <img class="news__image" src="{{ recipe.img.url }}" alt="{{ recipe.title }}">
+            </div>
+            <div class="news__info__box">
+                <div class="news__box__title">
+                    <h1 class="news__title">
+                        {{ recipe.title }}
+                    </h1>
+                    <p class="date__news__publication">{{ recipe.date|date:"j F Y" }}</p>
+                </div>
+                <p class="news__text">
+                    {{ recipe.text }}
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
