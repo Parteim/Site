@@ -1,0 +1,69 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/news.css' %}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/news.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__news">Прошедшие конференции</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="News">
+
+    <div class="container">
+
+        {% for conference in conferences_queryset %}
+
+
+        <div class="news__item">
+            <div class="news__image__box">
+                <a href="{% url 'conference' conference.id %}">
+                    <img class="news__image" src="{{ conference.img.url }}" alt="{{ conference.title }}">
+                </a>
+            </div>
+            <div class="news__info__box">
+                <div class="news__box__title">
+                    <a href="{% url 'conference' conference.id %}">
+                        <h2 class="news__title">
+                            {{ conference.title }}
+                        </h2>
+                    </a>
+                    <p class="date__news__publication">{{ conference.date|date:"j F Y" }}</p>
+                </div>
+                <p class="news__text">
+                    {{ conference.description }}
+                </p>
+                {% for winner in conference.conferencestopic_set.all %}
+
+                {% if winner.status == 'Победитель' %}
+                <div class="winner__box">
+                    <p>Победитель:</p>
+                    <h4 class="winner">{{ winner.first_name }} <span>{{ winner.last_name }}</span></h4>
+                    <p class="topic_conference">Тема выступления: <span>"{{ winner.title }}"</span></p>
+                </div>
+                {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+{% endblock %}

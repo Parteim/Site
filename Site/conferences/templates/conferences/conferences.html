@@ -22,11 +22,85 @@
 
     <div class="container">
 
+        <p class="description__text__for__page">Здесь вы можете о готовящихся, или прошедших, конференциях.</p>
+
+        <h2 class="main__title__upcoming__conferences">
+            Внимание <span>конференция!</span>
+        </h2>
+
+        <div class="description__and__img__conference__box">
+
+            <div class="title__and__description">
+
+                <h3 class="title__conferences">
+                    {{ upcoming_conference.title }}
+                </h3>
+
+                <p class="text__description__upcoming__conferences">
+                    {{ upcoming_conference.description }}
+                </p>
+
+            </div>
+
+            <div class="conference__img__box">
+                <img src="{{ upcoming_conference.img.url }}" alt="{{ upcoming_conference.title }}"
+                     class="conference__img">
+            </div>
+
+        </div>
+
+        <div class="topics__of__speech">
+
+            <h4 class="title__topics">Темы <span>выступлений:</span></h4>
+
+            <ul>
+                {% for topic in upcoming_conference.conferencestopic_set.all %}
+
+                <li>h{{ topic.title }}</li>
+
+                {% endfor %}
+            </ul>
+
+        </div>
 
 
     </div>
 
 </section>
+
+
+<section class="Past__conferences">
+
+    <div class="container">
+
+        <h2 class="main__title__past__conference">Прошедшая <span>конференция</span></h2>
+
+
+        <div class="body__past__conference">
+
+            <div class="past__conference__img__box">
+                <img src="{{ past_conference.img.url }}" alt="{{ past_conference.title }}" class="conference__img">
+            </div>
+
+            <div class="past__conference__information">
+
+                <h3 class="title__conference">{{ past_conference.title }}</h3>
+                <h4 class="title__conference__winner">Победитель:</h4>
+                <p class="name__winner">{{ winner.first_name }} <span>{{ winner.last_name }}</span></p>
+                <p class="winner__topic__of__speech"><span>Тема выступления:</span> "{{ winner.title }}"</p>
+
+
+            </div>
+
+        </div>
+
+
+        <a href="{% url 'past-conferences' %}" class="button__all__conferences">История конференций</a>
+
+    </div>
+
+</section>
+
 
 {% block for_scripts %}
 <!--<script src="{% static 'js/contests.js' %}" befer></script>-->

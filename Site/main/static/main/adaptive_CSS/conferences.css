@@ -4,6 +4,54 @@
         padding: 50px 0;
     }
 
+    .Past__conferences {
+        padding: 50px 0;
+    }
+
+    @media (max-width: 650px) {
+
+        .main__title__upcoming__conferences {
+            font-size: 27px;
+        }
+
+        .description__and__img__conference__box {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .conference__img__box {
+            width: 90%;
+        }
+
+        .title__conferences {
+            font-size: 23px;
+            margin-top: 5px;
+        }
+
+        .title__topics {
+            font-size: 18px;
+        }
+
+        .title__conference {
+            font-size: 27px;
+        }
+
+        .title__conference__winner {
+            font-size: 23px;
+        }
+
+        .body__past__conference {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .past__conference__img__box {
+            width: 90%;
+        }
+
+    }
+
     @media (max-width: 450px) {
 
     }

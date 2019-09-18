@@ -13,3 +13,238 @@
 .Conferences {
     padding: 80px 0;
 }
+
+.description__text__for__page {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 22px;
+
+    color: #757575;
+
+}
+
+.description__and__img__conference__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #757575;
+    font-size: 16px;
+}
+
+.main__title__upcoming__conferences {
+    color: #252424;
+    font-size: 37px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+
+    margin: 5% 0 3% 0;
+
+    position: relative;
+}
+
+.main__title__upcoming__conferences::after {
+    content: "";
+    width: 15%;
+    height: 3px;
+
+    background: #d44b25da;
+
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translate(-50%, 0)
+    
+}
+
+.main__title__upcoming__conferences span {
+    color: #d44b25;
+}
+
+.title__and__description {
+    margin: 0 5%;
+
+    max-width: 600px;
+}
+
+.title__conferences {
+    color: #252424;
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+.conference__img__box {
+    width: 40%;
+    max-width: 520px;
+    max-height: 340px;
+
+    background-color: #d44b25;
+    border: 3px solid #3f3f3f;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.conference__img {
+    width: 100%;
+}
+
+.topics__of__speech {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 3%;
+
+    color: #4e4a4a;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.title__topics {
+    color: #252424;
+    text-transform: uppercase;
+    font-size: 20px;
+
+    margin-bottom: 1%;
+}
+
+.title__topics span {
+    color: #d44b25;
+}
+
+
+
+/* Past conferences */
+
+
+.Past__conferences {
+    padding: 80px 0;
+
+    background-color: #f5f5f5;
+}
+
+.main__title__past__conference {
+    color: #252424;
+    font-size: 37px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+
+    margin-bottom: 3%;
+
+    position: relative;
+}
+
+.main__title__past__conference span {
+    color: #d44b25;
+}
+
+.main__title__past__conference::after {
+    content: "";
+    width: 15%;
+    height: 3px;
+
+    background: #d44b25da;
+
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translate(-50%, 0)
+    
+}
+
+
+.body__past__conference {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.past__conference__img__box {
+    width: 40%;
+    max-width: 520px;
+    max-height: 340px;
+
+    background-color: #d44b25;
+    border: 3px solid #3f3f3f;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.past__conference__information {
+    margin: 5%;
+    max-width: 600px;
+
+    font-size: 16px;
+}
+
+.title__conference {
+    color: #252424;
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+.title__conference__winner {
+    color: #252424;
+    font-size: 27px;
+    color: #d44b25;
+
+    margin-top: 3%;
+}
+
+.name__winner {
+    color: #252424;
+    font-size: 25px;
+    margin: 3px 0;
+}
+
+.name__winner span {
+    color: #d44b25;
+}
+
+.winner__topic__of__speech span {
+    font-weight: 600;
+}
+
+.winner__topic__of__speech {
+    font-size: 19px;
+    color: #252424;
+
+    margin: 5px 0;
+}
+
+.button__all__conferences {
+    color: #252424;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 25px;
+
+    background-color: rgba(212, 75, 37, 0.8);
+
+    width: 270px;
+    height: 52px;
+
+
+    margin: 50px auto;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all .2s;
+}
+
+.button__all__conferences:hover {
+    background-color: #d44c27;
+
+    width: 290px;
+
+    transition: all .2s;
+}

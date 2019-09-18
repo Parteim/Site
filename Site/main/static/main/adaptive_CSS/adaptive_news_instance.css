@@ -55,4 +55,17 @@
         align-items: center;
     }
 
+    @media (max-width: 650px) {
+        
+        .conference__img__and__winner__box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .winner__box {
+            margin-bottom: 10px;
+        }
+
+    }
+
 }

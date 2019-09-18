@@ -50,3 +50,63 @@
 .news__text {
     line-height: 23px;
 }
+
+
+
+/* For conference  */
+
+
+.conference__img__and__winner__box {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.winner__box {
+    color: #252424;
+
+    margin: 0 7%;
+}
+
+.winner__box p {
+    margin: 5px 0;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.winner {
+    font-size: 24px;
+}
+
+.winner span {
+    color: #de6441;
+}
+
+.conference__box__change__position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.topics__conference {
+    width: 60%;
+    margin: 0 10%;
+
+    font-weight: 600;
+    color: #4e4b4b;
+}
+
+
+.topics__conference__text {
+    margin: 5px 0;
+    
+    color: #252424;
+
+    list-style: none;
+}
+
+.topics__conference li span {
+    color: #de6441;
+}
+
