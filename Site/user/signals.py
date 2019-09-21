@@ -18,8 +18,7 @@ def save_profile(sender, instance, **kwargs):
 def binding_class_with_profile(sender, instance, created, **kwargs):
     if created:
         profile_user = CustomUser.objects.get(email=instance)
-        print(profile_user)
         if profile_user.who_is == 'student':
             StudentProfile.objects.create(profile_user=instance)
-        elif profile_user.user.who_is == 'teacher':
+        elif profile_user.who_is == 'teacher':
             TeacherProfile.objects.create(profile_user=instance)

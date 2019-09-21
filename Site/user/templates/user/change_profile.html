@@ -34,6 +34,19 @@
                     <div class="who__is__indicate__line"></div>
                 </div>
                 <p class="user__email">E-mail: <span>{{ user.email }}</span></p>
+
+                {% if user.who_is == 'student' %}
+
+                <ul class="student__data">
+
+                    <li>Возрост: <span>{{ user.profile.studentprofile.age }}</span></li>
+                    <li>Специальность: <span>{{ user.profile.studentprofile.faculty }}</span></li>
+                    <li>Курс: <span>{{ user.profile.studentprofile.course }}</span></li>
+
+                </ul>
+
+                {% endif %}
+
             </div>
         </div>
     </div>
@@ -50,6 +63,15 @@
             <span>загрузить изображение</span>
             <i class="fas fa-file-upload"></i>
         </label>
+
+        {% if user.who_is == 'student' %}
+
+        <div class="student__data__change">
+            {{ student_profile}}
+        </div>
+
+        {% endif %}
+
         {{ change_info.first_name }}
         {{ change_info.last_name }}
         <button type="submit" class="btn__prifile__image__change">Обновить данные</button>

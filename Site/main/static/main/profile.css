@@ -53,7 +53,7 @@
     font-size: 17px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     flex-direction: column;
 }
 
@@ -104,10 +104,10 @@
 .change_form #id_first_name, #id_last_name {
     border: 2px solid #3f3f3f;
     border-radius: 4px;
-    font-size: 24px;
-    height: 30px;
-    width: 300px;
-    padding: 3px;
+    font-size: 22px;
+    height: 25px;
+    width: 295px;
+    padding: 5px;
     margin: 5px 0 15px 0;
 
 } 
@@ -194,7 +194,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 23px;
     letter-spacing: 1px;
     font-size: 19px;
     position: absolute;
@@ -208,6 +208,53 @@
     transition: all .2s;
 }
 
+
+
+
+/* Student profile */
+
+.student__data {
+    list-style: none;
+
+}
+
+.student__data__change {
+    margin: 5px 0 15px 0 ;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.student__data__change label {
+    margin: 5px;
+
+    font-size: 18px;
+    color: #3f3f3f;
+}
+
+.student__data__change input{
+    height: 25px;
+    width: 295px;
+    padding: 5px;
+
+    font-size: 22px;
+
+    border: 2px solid #3f3f3f;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
 /* * {
     border: 1px solid red;
 } */
+
+

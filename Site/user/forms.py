@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Profile
+from .models import CustomUser, Profile, StudentProfile
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import check_password
@@ -58,3 +58,21 @@ class ProfileImage(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['img']
+
+
+class StudentProfileChange(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(StudentProfileChange, self).__init__(*args, **kwargs)
+        self.fields['age'].widget.attrs['class'] = 'age'
+        self.fields['age'].widget.attrs['placeholder'] = 'Возрост'
+        self.fields['age'].label = 'Возрост'
+        self.fields['course'].widget.attrs['class'] = 'course'
+        self.fields['course'].widget.attrs['placeholder'] = 'Курс'
+        self.fields['course'].label = 'Курс'
+        self.fields['faculty'].widget.attrs['class'] = 'faculty'
+        self.fields['faculty'].widget.attrs['placeholder'] = 'Специальность'
+        self.fields['faculty'].label = 'Специальность'
+
+    class Meta:
+        model = StudentProfile
+        fields = ['age', 'course', 'faculty']

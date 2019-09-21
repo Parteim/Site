@@ -1,16 +1,25 @@
-from django.shortcuts import render
-from .models import Contests, PastContests, Winners, FutureContests
+from django.shortcuts import render, redirect
+from .models import Contests, Participants
 from django.utils import timezone
 from django.views.generic import ListView, DetailView
+from .forms import ParticipantForm
 
 
 def ShowContestsPage(request):
-    # date = timezone.now().date()
-    # contests = Contests.objects.filter(date=date)
+    if request.method == 'POST':
+        print(request)
+        user_valid = request.user.profile.studentprofile
+        form = ParticipantForm()
+        if user_valid.age == 0 or user_valid.course == 0 or user_valid.faculty == 'Не указан':
+            return redirect('change-profile')
+        contest_name = request.POST.get('contest')
+        contest = Contests.objects.filter(title=contest_name)[0]
+        Participants.objects.create(contest=contest, user=request.user)
     data = {
-        'winners': Winners.objects.all(),
-        'past_contests': PastContests.objects.all().order_by('-date')[:5],
-        'contests': FutureContests.objects.all().order_by('-date'),
+        'participant_form': ParticipantForm(),
+        'winners': Participants.objects.all(),
+        'past_contests': Contests.objects.all().filter(status='Прошедший').order_by('-date')[:5],
+        'contests': Contests.objects.all().filter(status='Предстоящий').order_by('-date'),
         'title': 'Конкурсы',
     }
 
@@ -18,26 +27,24 @@ def ShowContestsPage(request):
 
 
 class ShowContests(ListView):
-    model = FutureContests
+    model = Contests
     template_name = 'contests/all_contests.html'
-    context_object_name = 'Contests'
-    ordering = ['-date']
 
     def get_context_data(self, **kwargs):
         ctx = super(ShowContests, self).get_context_data(**kwargs)
         ctx['title'] = 'Все конкурсы'
+        ctx['Contests'] = Contests.objects.all().filter(status='Предстоящий').order_by('-date')
         return ctx
 
 
 class ShowPastContests(ListView):
-    model = PastContests
-    template_name = 'contests/past_contests.html'
-    context_object_name = 'Contests'
-    ordering = ['-date']
+    model = Contests
+    template_name = 'contests/all_contests.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(ShowPastContests, self).get_context_data(**kwargs)
         ctx['title'] = 'Прошедшие конкурсы'
+        ctx['Contests'] = Contests.objects.all().filter(status='Прошедший').order_by('-date')
         return ctx
 
 
@@ -48,15 +55,4 @@ class SingleShowContests(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super(SingleShowContests, self).get_context_data(**kwargs)
         ctx['title'] = Contests.objects.filter(pk=self.kwargs['pk']).first()
-        return ctx
-
-
-class SingleShowPastContests(DetailView):
-    model = PastContests
-    context_object_name = 'contests'
-    template_name = 'contests/contest_instance.html'
-
-    def get_context_data(self, **kwargs):
-        ctx = super(SingleShowPastContests, self).get_context_data(**kwargs)
-        ctx['title'] = PastContests.objects.filter(pk=self.kwargs['pk']).first()
         return ctx

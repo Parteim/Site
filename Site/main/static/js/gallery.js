@@ -15,7 +15,7 @@ let revealImg = document.querySelectorAll('.img_gallery__reveal')[0]
 
 photos.forEach(function(photo, key, photos) {
     photo.onclick = function() {
-        revealImgBox.className = 'reveal__img'
+        revealImgBox.className = 'reveal__img';
         revealImg.src = photo.children[0].src;
 
         // revealImg.onmouseover = function(){
@@ -28,7 +28,7 @@ photos.forEach(function(photo, key, photos) {
         // }
 
         revealImgBox.onclick = function() {
-            revealImgBox.className = ''
+            revealImgBox.className = '';
             revealImg.src = '';  
             htmlBody.style.overflowY = '';
         }

@@ -18,6 +18,19 @@
 
 {% block main_section %}
 
+<div class="Participant__form">
+
+    <button class="close__form">
+        <i class="fas fa-times"></i>
+    </button>
+    <p class="participant__text" >Принять <span>участие</span></p>
+    <form class="send__participant" method="POST">
+        {% csrf_token %}
+        {{ participant_form.contest }}
+        <input value="Принять" class="participant__send__btn" type="submit">
+    </form>
+
+</div>
 
 <section>
     <div class="container upcoming__contests">
@@ -41,9 +54,17 @@
                         <img class="contests__img" src="{{ contest.img.url }}" alt="{{ contest.title }}">
                         <p class="contest__start__day">{{ contest.date }}</p>
                         <div class="btn__contests__nav__box">
-                            <a  target="_blank" href="{{ contest.full_information_about_contest.url }}" class="btn__contests__item">Больше <span> информации</span></a>
+                            <a target="_blank" href="{{ contest.full_information_about_contest.url }}"
+                               class="btn__contests__item">Больше <span> информации</span></a>
+
+
+                            {% if user.who_is == 'student' %}
+
                             <div class="line__btan__separate"></div>
-                            <a href="#" class="btn__contests__item">Принять <span> участие</span></a>
+                            <button class="btn__contests__item" id="{{ contest }}">Принять <span> участие</span></button>
+                            {% endif %}
+
+
                         </div>
                     </div>
                     <div class="box__description__contests">
@@ -106,14 +127,13 @@
 
         <div class="past__contests__box">
             <div class="past__contests__image__box">
-                <a href="{% url 'past-contest-instance' past_contest.id %}">
-                    <img class="past__contests__image" src="{{ past_contest.img.url }}" alt=""
-                         class="{{ past_contest.title }}">
+                <a href="{% url 'contest-instance' past_contest.id %}">
+                    <img class="past__contests__image" src="{{ past_contest.img.url }}" alt="{{ past_contest.title }}">
                 </a>
             </div>
             <div class="past__contests__information">
                 <div class="past__contests__title__and__date">
-                    <a href="{% url 'past-contest-instance' past_contest.id %}">
+                    <a href="{% url 'contest-instance' past_contest.id %}">
                         <h3 class="past__contests__title">{{ past_contest.title }}</h3>
                     </a>
                     <p class="past__contests__date">{{ past_contest.date }}</p>

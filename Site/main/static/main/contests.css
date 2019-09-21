@@ -63,6 +63,10 @@
     position: absolute;
     width: 1170px;
 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     z-index: 800;
  }
  
@@ -153,6 +157,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font-family: 'PT Sans Narrow', sans-serif;
+
     transition: all .2s;
  }
  
@@ -484,3 +495,106 @@
     width: 400px;
     transition: all .2s;
  }
+
+
+
+ /* Participant */
+
+.Participant__form {
+   position: fixed;
+   z-index: 90;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   background-color: rgba(51, 50, 50, 0.99);
+   border: 3px solid #da522c;
+   border-radius: 4px;
+
+   min-width: 200px;
+   min-height: 150px;
+   width: 20%;
+   height: 20%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+
+   display: none;
+
+}
+
+.participant__text {
+   margin: 0;
+
+   color: #fafafa;
+   font-size: 25px;
+   letter-spacing: 1px;
+   font-weight: 600;
+
+}
+
+.participant__text span {
+   color: #da522c;
+
+}
+   
+.send__participant {
+   margin: 15px 0;
+
+}
+
+.participant__send__btn {
+   cursor: pointer;
+
+   background: none;
+   border: 2px solid #da522c;
+   border-radius: 3px;
+
+   color: #fafafa;
+   text-transform: uppercase;
+
+   padding: 5px 20px;
+
+   transition: all .2s;
+
+}
+
+.participant__send__btn:hover {
+   color: #333232;
+   background-color: #da522c;
+
+   transition: all .2s;
+
+}
+
+.close__form {
+   position: absolute;
+   right: 5px;
+   top: 5px;
+
+   width: 20px;
+   height: 20px;
+
+   font-size: 16px;
+   color: #da522c;
+   background: none;
+   border: none;
+
+   cursor: pointer;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   transition: all .2s;
+
+}
+
+.close__form:hover {
+   font-size: 17px;
+
+   transition: all .2s;
+
+}

@@ -35,6 +35,18 @@
                 </div>
                 <p class="user__email">E-mail: <span>{{ user.email }}</span></p>
 
+                {% if user.who_is == 'student' %}
+
+                <ul class="student__data">
+
+                    <li>Возрост: <span>{{ user.profile.studentprofile.age }}</span> </li>
+                    <li>Специальность: <span>{{ user.profile.studentprofile.faculty }}</span> </li>
+                    <li>Курс: <span>{{ user.profile.studentprofile.course }}</span></li>
+
+                </ul>
+
+                {% endif %}
+
                 <a class="change__user__info" href="{% url 'change-profile' %}">Редактировать профиль</a>
             </div>
         </div>

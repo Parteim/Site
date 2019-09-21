@@ -63,3 +63,25 @@ arrowLeft.onclick = function () {
 }
 
 
+let btn__contests__item = document.querySelectorAll('.btn__contests__item');
+
+btn__contests__item.forEach(function(ekement, key, photos) {
+
+    ekement.onclick = function() {
+
+        let Participant__form = document.querySelector('.Participant__form');
+        let close__form = document.querySelector('.close__form');
+        let contest__name = document.querySelector('.contest__name');
+
+        contest__name.value = this.id;
+        Participant__form.style.display = 'flex';
+
+        close__form.onclick = function() {
+
+            Participant__form.style.display = 'none';
+
+        }
+       
+    }
+
+})
