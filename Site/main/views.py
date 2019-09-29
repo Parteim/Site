@@ -61,3 +61,10 @@ class SingleShowRecipe(DetailView):
         ctx = super(SingleShowRecipe, self).get_context_data(**kwargs)
         ctx['title'] = Recipe.objects.filter(pk=self.kwargs['pk']).first()
         return ctx
+
+
+def about_us(request):
+    data = {
+        'title': 'Информация',
+    }
+    return render(request, 'home/about_us.html', data)

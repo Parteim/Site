@@ -50,9 +50,16 @@
             width: 90%;
         }
 
-    }
+        .button__all__conferences {
+            margin: 10px auto;
+        }
 
-    @media (max-width: 450px) {
+        @media (max-width: 450px) {
+
+
+    
+        }
+
 
     }
 

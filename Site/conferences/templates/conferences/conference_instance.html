@@ -21,47 +21,49 @@
 
 
         <div class="news__item">
-            <div class="conference__img__and__winner__box">
 
-                <div class="news__image__box">
-                    <img class="news__image" src="{{ conferences.img.url }}" alt="{{ conferences.title }}">
-                </div>
-
-                {% for winner in conferences.conferencestopic_set.all %}
-
-                {% if winner.status == 'Победитель' %}
-                <div class="winner__box">
-                    <p>Победитель:</p>
-                    <h4 class="winner">{{ winner.first_name }} <span>{{ winner.last_name }}</span></h4>
-                    <p class="topic_conference">Тема выступления: <span>"{{ winner.title }}"</span></p>
-                </div>
-                {% endif %}
-
-                {% endfor %}
-
+            <div class="news__image__box">
+                <img class="news__image" src="{{ conferences.img.url }}" alt="{{ conferences.title }}">
             </div>
+
 
             <div class="conference__box__change__position">
 
-                            <div class="news__info__box">
-                <div class="news__box__title">
-                    <h1 class="news__title">
-                        {{ conferences.title }}
-                    </h1>
-                    <p class="date__news__publication">{{ conferences.date|date:"j F Y" }}</p>
+                <div class="news__info__box">
+                    <div class="news__box__title">
+                        <h1 class="news__title">
+                            {{ conferences.title }}
+                        </h1>
+                        <p class="date__news__publication">{{ conferences.date|date:"j F Y" }}</p>
+                    </div>
+                    <p class="news__text">
+                        {{ conferences.description }}
+                    </p>
                 </div>
-                <p class="news__text">
-                    {{ conferences.description }}
-                </p>
-            </div>
 
-            <ul class="topics__conference">
-                <li class="topics__conference__text">Темы выступлений:</li>
-                {% for topic in conferences.conferencestopic_set.all %}
-                <li>Тема: {{ topic.title }} Выступающий: {{ topic.first_name }} <span>{{ topic.last_name }}</span></li>
-                {% endfor %}
+                <ul class="topics__conference">
+                    <li class="topics__conference__text">Темы выступлений:</li>
 
-            </ul>
+                    {% for topic in conferences.conferencestopic_set.all %}
+
+                    {% if topic.status == 'Победитель' %}<!-- === if === -->
+
+                    <li class="winner__topic">
+                        <p class="winner__topic_text">Победитель <i class="fas fa-crown"></i></p>
+                        Тема: {{ topic.title }} Выступающий: {{ topic.first_name }} <span>{{ topic.last_name }}</span>
+                    </li>
+
+                    {% else %}
+
+                    <li>
+                        Тема: {{ topic.title }} Выступающий: {{ topic.first_name }} <span>{{ topic.last_name }}</span>
+                    </li>
+
+                    {% endif %}<!-- === endif === -->
+
+                    {% endfor %}
+
+                </ul>
 
             </div>
 

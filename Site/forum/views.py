@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Post, Comment
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, View
 from .forms import CreatePost, CreateComment
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
+from django.db.models import Q
 
 
 def ShowForumPage(request):
@@ -15,20 +15,30 @@ def ShowForumPage(request):
     return render(request, 'forum/forum.html', data)
 
 
+class PostSearch(View):
+    template_name = 'forum/search_post.html'
+
+    def get(self, request, *args, **kwargs):
+        search_ctx = self.request.GET.get('search')
+        founded_post = Post.objects.filter(
+            Q(title__icontains=search_ctx) |
+            Q(text__icontains=search_ctx)
+        )
+
+        data = {
+            'title': 'Найденные посты',
+            'Post': founded_post,
+        }
+
+        return render(self.request, self.template_name, data)
+
+
 class ForumPage(ListView):
     model = Post
     template_name = 'forum/forum.html'
     context_object_name = 'Post'
     ordering = ['-date']
-    paginate_by = 3
-
-    def get_queryset(self):
-        query = self.request.GET.get('search')
-        if query:
-            object_list = self.model.objects.filter(title=query)
-        else:
-            object_list = self.model.objects.all().order_by('-date')
-        return object_list
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         ctx = super(ForumPage, self).get_context_data(**kwargs)

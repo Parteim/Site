@@ -116,7 +116,7 @@
     font-size: 15px;
     color: #da532c;
     border: 3px solid #3f3f3f;
-    width: 300px;
+    width: 310px;
     height: 50px;
     text-transform: uppercase;
     text-decoration: none;
@@ -205,6 +205,32 @@
     background: rgba(222, 99, 65, 100%);
     color: #1b1b1b;
     width: 330px;
+    transition: all .2s;
+}
+
+.btn_change_password {
+    color: #1b1b1b;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #da532c;
+    border-radius: 3px;
+
+    width: 290px;
+    height: 30px;
+    padding: 10px;
+
+    transition: all .2s;
+}
+
+.btn_change_password:hover {
+    color: #313030;
+    background-color: #ce3e16;
     transition: all .2s;
 }
 

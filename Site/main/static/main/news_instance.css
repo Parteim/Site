@@ -90,8 +90,8 @@
 }
 
 .topics__conference {
-    width: 60%;
-    margin: 0 10%;
+    width: 100%;;
+    margin: 0 100px 0 30px;
 
     font-weight: 600;
     color: #4e4b4b;
@@ -102,6 +102,7 @@
     margin: 5px 0;
     
     color: #252424;
+    text-transform: uppercase;
 
     list-style: none;
 }
@@ -110,3 +111,17 @@
     color: #de6441;
 }
 
+.winner__topic {
+    color: #252424;
+
+    margin: 10px;
+}
+
+.winner__topic_text {
+    margin: 3px;
+    color: #252424;
+}
+
+.winner__topic_text i {
+    color: #de6441;
+}

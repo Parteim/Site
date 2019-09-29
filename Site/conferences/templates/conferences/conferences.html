@@ -84,7 +84,9 @@
 
             <div class="past__conference__information">
 
-                <h3 class="title__conference">{{ past_conference.title }}</h3>
+                <a href="{% url 'conference' past_conference.id %}">
+                    <h3 class="title__conference">{{ past_conference.title }}</h3>
+                </a>
                 <h4 class="title__conference__winner">Победитель:</h4>
                 <p class="name__winner">{{ winner.first_name }} <span>{{ winner.last_name }}</span></p>
                 <p class="winner__topic__of__speech"><span>Тема выступления:</span> "{{ winner.title }}"</p>

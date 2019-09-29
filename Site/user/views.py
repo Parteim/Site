@@ -23,8 +23,10 @@ def sign_up(request):
 def profile_user(request):
     return render(request, 'user/profile.html')
 
+
 @login_required
 def change_profile(request):
+    data = {}
     if request.method == 'POST':
         if request.user.who_is == 'student':
             student_profile = StudentProfileChange(request.POST, instance=request.user.profile.studentprofile)
@@ -40,12 +42,13 @@ def change_profile(request):
             return redirect('profile')
 
     else:
-        student_profile = StudentProfileChange(instance=request.user.profile.studentprofile)
+        if request.user.who_is == 'student':
+            student_profile = StudentProfileChange(instance=request.user.profile.studentprofile)
+            data.update({'student_profile': student_profile, })
         img_profile = ProfileImage()
         change_info = CustomUserChange(instance=request.user)
-    data = {
-        'student_profile': student_profile,
+    data.update({
         'img_profile': img_profile,
         'change_info': change_info,
-    }
+    })
     return render(request, 'user/change_profile.html', data)

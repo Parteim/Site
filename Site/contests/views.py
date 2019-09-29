@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Contests, Participants
-from django.utils import timezone
+from django.shortcuts import get_list_or_404
 from django.views.generic import ListView, DetailView
 from .forms import ParticipantForm
 
 
 def ShowContestsPage(request):
     if request.method == 'POST':
-        print(request)
         user_valid = request.user.profile.studentprofile
         form = ParticipantForm()
         if user_valid.age == 0 or user_valid.course == 0 or user_valid.faculty == 'Не указан':
@@ -17,7 +16,7 @@ def ShowContestsPage(request):
         Participants.objects.create(contest=contest, user=request.user)
     data = {
         'participant_form': ParticipantForm(),
-        'winners': Participants.objects.all(),
+        'winners': Participants.objects.all().filter(status='Победитель'),
         'past_contests': Contests.objects.all().filter(status='Прошедший').order_by('-date')[:5],
         'contests': Contests.objects.all().filter(status='Предстоящий').order_by('-date'),
         'title': 'Конкурсы',

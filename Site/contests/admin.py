@@ -8,5 +8,5 @@ class ParticipantsAdmin(admin.TabularInline):
 
 @admin.register(Contests)
 class ContestsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date')
+    list_display = ('title', 'status', 'date')
     inlines = [ParticipantsAdmin]

@@ -5,12 +5,12 @@
             padding: 50px 0;
         }
     
-        form input {
-            width: 95%;
+        .sign_up_form input {
+            width: 90%;
         }
     
-        form span {
-            width: 95%;
+        .sign_up_form span {
+            width: 90%;
         }
     }
 

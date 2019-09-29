@@ -24,8 +24,7 @@
 
     .main__bloc__nav ul {
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: flex-start;
+        flex-direction: column;
     }
 
     .adaptive_nav_box {
@@ -40,6 +39,7 @@
 
         transition: all .2s;
     }
+
     .adaptive_nav_line {
         width: 80%;
         height: 3px;
@@ -53,8 +53,12 @@
         margin: 0 10px;
     }
 
+    .item__main__nav {
+        margin: 5px 0;
+    }
+
     .item__main__nav a::after {
-        bottom: -.5px;
+        bottom: -2px;
     }
 
 

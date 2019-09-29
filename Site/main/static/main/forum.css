@@ -42,10 +42,16 @@ a {
 .search__post {
     height: 20px;
     width: 230px;
+
     padding: 5px;
-    font-size: 19px;
     margin: 0;
-    border: 0px solid #000;
+
+    font-size: 19px;
+
+    border: none;
+    background: none;
+
+
     
 }
 
@@ -175,6 +181,7 @@ a {
 }
 
 .form_for_search {
-    border: 2px solid #3f3f3f;
-    border-radius: 4px;
+    background: #e4e1e1;
+    border:  none;
+    border-radius: 3px;
 }

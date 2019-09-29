@@ -18,201 +18,34 @@
     text-align: center;
 }
 
-/* .entry__form__sign__up {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    position: relative;
-}
-
-.title__sign__up {
-    color: #252424;
-    font-size: 41px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.entry__item {
-    width: 770px;
-    height: 30px;
-    margin: 20px;
-    padding: 5px;
-    font-size: 23px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    border: 2px solid #8f8f92;
-    border-radius: 4px;
-}
-
-.btn__box__sign__up {
-    margin-top: 20px;
-    width: 770px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
-}
-
-.dtn_sign_up {
-    background: #da532c;
-    color: #ffffff;
-    border: none;
-    text-transform: uppercase;
-    font-size: 24px;
-    width: 450px;
-    height: 60px;
-    border-radius: 4px;
-    margin-top: 50px;
-    cursor: pointer;
-    transition: all .2s;
-
-}
-
-.dtn_sign_up:hover {
-    background: #f06741;
-    width: 460px;
-    transition: all .2s;
-}
-
-.choos__who__is__description {
-    color: #bdbcbc;
-    font-size: 15px;
-    margin-right: 10px;
-    letter-spacing: 1px;
-}
-
-.who__is__choose {
-    border: 2px solid #696262;
-    background: #fff;
-    margin-left: 15px;
-    transition: all .2s;
-} */
-
-
-/* * {
-    border: 1px solid red;
-} */ 
-
-
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 23px;
-}
-
-form input {
-    width: 400px;
-    height: 25px;
-    font-size: 22px;
-    border: 2px solid #6b6969; 
-    border-radius: 4px;
-    padding: 5px;
-    margin: 10px 0 30px 0;
-    margin-bottom: 30px;
-} 
-
-#id_password1 {
-    margin-bottom: -5px;
-    place-content: 'pass#ord';
-}
-
-#id_password2 {
-    margin-top: 30px;
-    margin-bottom: -10px;
-
-} 
-
-.helptext ul li{
-    width: 800px;
-    font-size: 17px;
-}
-
-
-
-
-
- /* #id_username {
-    width: 200px;
-    height: 20px;
-    font-size: 19px;
-    border: 2px solid #252424; 
-    padding: 5px;
-}
-
-#id_last_name {
-    width: 200px;
-    height: 20px;
-    font-size: 19px;
-    border: 2px solid #252424; 
-    padding: 5px;
-}  */
-
-.dtn_sign_up {
-    background: #da532c;
-    color: #ffffff;
-    border: none;
-    text-transform: uppercase;
-    font-size: 19px;
-    width: 270px;
-    height: 60px;
-    border-radius: 4px;
-    margin-top: 50px;
-    cursor: pointer;
-    transition: all .2s;
-
-}
-
-.dtn_sign_up:hover {
-    background: #f06741;
-    width: 290px;
-    transition: all .2s;
-} 
-
-.box__helper__sign__up {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.lin_sign_in {
-    background: #da532c;
-    color: #ffffff;
-    border: none;
-    text-transform: uppercase;
-    font-size: 19px;
-    width: 270px;
-    height: 60px;
-    border-radius: 4px;
-    margin-top: 50px;
-    cursor: pointer;
-    text-decoration: none;
+.sign_up_form {
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 1px;
+    flex-direction: column;
 
-
-    transition: all .2s;
-    
+    color: #474444;
 }
 
-.lin_sign_in:hover {
-    background: #f06741;
-    width: 290px;
-    transition: all .2s;
-} 
+.sign_up_form input {
+    margin: 10px 0;
+    padding: 5px 10px;
+
+    background: #e4e1e1;
+    border:  none;
+    border-radius: 3px;
+
+    width: 350px;
+    height: 30px;
+}
 
 #id_who_is {
 
-    width: 200px;
+    width: 150px;
     height: 30px;
 
-    background: none;
-    border: 2px solid #6b6969;
+    background: #e4e1e1;
+    border: none;
     border-radius: 3px;
     color: #3f3f3f;
 
@@ -231,4 +64,69 @@ form input {
     font-size: 16px;
 
     transition: all .2s;
+}
+
+.dtn_sign_up {
+    margin: 20px 0;
+    padding: 10px;
+
+    width: 250px;
+    height: 50px;
+
+    background: #e44418;
+    border: none;
+    border-radius: 3px;
+
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+
+    color: #1b1b1b;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.dtn_sign_up:hover {
+    background: #eb4b1f;
+    color: #2e2d2d;
+
+    transition: all .2s;
+}
+
+.link_sign_in {
+    margin: 20px 0;
+    padding: 10px;
+
+    width: 230px;
+
+    background: #e44418;
+    border: none;
+    border-radius: 3px;
+
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+
+    color: #1b1b1b;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.link_sign_in:hover {
+    background: #eb4b1f;
+    color: #2e2d2d;
+
+    transition: all .2s;
+}
+
+/* link if the user has forgotten his password */
+
+.forget_password {
+    text-transform: lowercase;
+    text-align: right;
+    font-size: 16px;
 }

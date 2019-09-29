@@ -55,13 +55,14 @@
                         <p class="contest__start__day">{{ contest.date }}</p>
                         <div class="btn__contests__nav__box">
                             <a target="_blank" href="{{ contest.full_information_about_contest.url }}"
-                               class="btn__contests__item">Больше <span> информации</span></a>
+                               class="btn__contests__item">Больше <span> информации</span>
+                            </a>
 
 
                             {% if user.who_is == 'student' %}
 
                             <div class="line__btan__separate"></div>
-                            <button class="btn__contests__item" id="{{ contest }}">Принять <span> участие</span></button>
+                            <button class="btn__contests__item btn_participant" id="{{ contest }}">Принять <span> участие</span></button>
                             {% endif %}
 
 
@@ -97,12 +98,12 @@
 
             {% for winner in winners %}
             <div class="winners__item">
-                <img class="winners__image" src="{{ winner.img.url }}" alt="winners">
+                <img class="winners__image" src="{{ winner.user.profile.img.url }}" alt="winners">
                 <div class="winners__info">
-                    <h3 class="winners__name">{{ winner.first_name }} {{ winner.last_name }}</h3>
+                    <h3 class="winners__name">{{ winner.user.first_name }} {{ winner.user.last_name }}</h3>
                     <p class="winners__description">
                         Победитель конкурса
-                        "{{ winner.title_contest.title }}"
+                        "{{ winner.contest.title }}"
                     </p>
                 </div>
             </div>
