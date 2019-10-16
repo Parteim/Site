@@ -19,7 +19,7 @@
 
 <div id="reveal__img">
 
-        <img class="img_gallery__reveal" src="{{ photo.img.url }}" alt="{{ item.title }}">
+    <img class="img_gallery__reveal" src="{{ photo.img.url }}" alt="{{ item.title }}">
 
 </div>
 
@@ -27,10 +27,24 @@
 
     <div class=" body__gallery ">
 
+        {% for photo in contest_photo %}
+
+        <div class="gallery__item">
+            <img  class="img_gallery" src="{{ photo.gallery_img.url }}" alt="{{ item.past_contest }}">
+            <div class="description__img">
+                <p class="date_post_img">{{ photo.past_contest.worldskillscontest_set.date }}</p>
+                <p class="text__description">
+                    {{ photo.past_contest }}
+                </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
         {% for photo in Photos %}
 
         <div class="gallery__item">
-            <img id="{{ photo.id }}" class="img_gallery" src="{{ photo.img.url }}" alt="{{ item.title }}">
+            <img class="img_gallery" src="{{ photo.img.url }}" alt="{{ item.title }}">
             <div class="description__img">
                 <p class="date_post_img">{{ photo.date }}</p>
                 <p class="text__description">

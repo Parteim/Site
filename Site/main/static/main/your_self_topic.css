@@ -15,7 +15,7 @@
 }
 
 .item__post__form {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .title {
@@ -47,30 +47,35 @@
 }
 
 .send__btn__post {
-    border: 0px solid #000;
-    background: #da532c;
-    text-transform: uppercase;
+    font-size: 15px;
+    color: #da532c;
+    border: 3px solid #3f3f3f;
     width: 200px;
-    height: 40px;
-    padding: 5px;
-    font-size: 21px;
-    color: #e9e9e9;
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #3f3f3f;
     border-radius: 4px;
+    background: none;
     cursor: pointer;
+    margin-top: 10px;
     transition: all .2s;
 }
 
 .send__btn__post:hover {
-    color: #f3f3f3;
-    width: 230px;
+    background: rgb(51, 50, 50);
     transition: all .2s;
 }
 
 .file__and__img {
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row;
 }
+
 
 .upload__file {
     margin: 10px 0;
@@ -87,7 +92,7 @@
     height: 50px;
     width: 100px;
     padding: 3px;
-    margin: 5px 0 15px 0;
+    margin: 10px;
     overflow: hidden;
     color: #3f3f3f;
     text-align: center;

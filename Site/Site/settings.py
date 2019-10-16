@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'forum.apps.ForumConfig',
     'gallery.apps.GalleryConfig',
     'conferences.apps.ConferencesConfig',
+    'world_skills.apps.WorldSkillsConfig',
 ]
 
 MIDDLEWARE = [

@@ -14,6 +14,8 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('gallery/', include('gallery.urls')),
     path('conferences/', include('conferences.urls')),
+    path('world_skills', include('world_skills.urls')),
+
 ]
 
 if settings.DEBUG:

@@ -14,7 +14,7 @@
 
 .news__image__box {
     width: 600px;
-    height: 350px;
+    max-height: 350px;
     border: 2px solid #302f2f;
     background: #de6441;
     overflow: hidden;

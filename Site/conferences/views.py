@@ -4,14 +4,14 @@ from django.views.generic import ListView, DetailView
 
 
 def conferences(request):
-    upcoming_conference = Conferences.objects.get(status='Предстоящий')
-    past_conference = Conferences.objects.order_by('-date').filter(status='Прошедший')[0]
+    upcoming_conference = Conferences.objects.filter(status='Предстоящий')
+    past_conference = Conferences.objects.order_by('-date').filter(status='Прошедший').first()
 
     data = {
         'upcoming_conference': upcoming_conference,
         'past_conference': past_conference,
-        'winner': past_conference.conferencestopic_set.filter(status='Победитель').get(),
-        'title': 'Конверенции',
+        'winner': past_conference.conferencestopic_set.filter(status='Победитель').first(),
+        'title': 'Конференции',
     }
 
     return render(request, 'conferences/conferences.html', data)

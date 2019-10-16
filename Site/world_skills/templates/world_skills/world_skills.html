@@ -1,0 +1,109 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/world_skills.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/world_skills.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <a title="Официальный сайт 'WorldSkills' " href="https://worldskills.ru/"><h1 class="header__main__title__contests">
+        WorldSkills</h1></a>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+<section class="WorldSkills">
+
+    <div class="container">
+
+        <div class="upcoming__world_skills__contest">
+
+            <a href="#" class="link__for__example__contest">
+                <h2 class="title_for_example_contest">Title the world<span>skills</span> contest!</h2>
+            </a>
+
+             {% for contest in Contests %}
+
+            <div class="upcoming__contest__example">
+
+                <div class="img_box">
+                    <img src="{{ contest.img.url }}" alt="{{ contest.title }}">
+                </div>
+
+                <div class="upcoming__contest__description">
+
+                    <a href="{% url 'world-skills-contest' contest.id %}">
+
+                        <h3 class="upcoming__example__title">
+                            {{ contest.title }}
+                        </h3>
+                    </a>
+
+                    <p class="description__text">
+                        {{ contest.description }}
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            {% endfor %}
+
+        </div>
+
+
+
+<!--   Post the  WorldSkills  contest -->
+    </div>
+</section>
+
+<section class="Past_WorldSkills_contest">
+
+            <div class="container">
+
+            <a href="#" class="link__for__example__post__contest">
+
+                <h2 class="title_for_example_post__contest">Past the world<span>skills</span> contest</h2>
+            </a>
+
+            <div class="post__contest__example">
+
+                <div class="img_box">
+                    <img src="{{ Past_contest.img.url }}" alt="{{ Past_contest.title }}">
+                </div>
+
+                <div class="post__contest__description">
+
+                    <a href="{% url 'world-skills-contest' Past_contest.id %}">
+
+                        <h3 class="post__example__title">
+                            {{ Past_contest.title }}
+                        </h3>
+                    </a>
+
+                    <p class="description__text">
+                        {{ Past_contest.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+
+{% block for_scripts %}
+<!--<script src="{% static 'js/contests.js' %}" befer></script>-->
+{% endblock %}
+
+
+{% endblock %}
+
+
+
