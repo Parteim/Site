@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5, h6 p, a span, img, li, ul, i,article {
    position: absolute;
    width: 100%;
    height: 16px;
-   background: rgba(37, 36, 36, 65%);
+   background: rgba(37, 36, 36, .65);
    bottom: 0;
    left: 0;
    z-index: 3;
@@ -558,7 +558,7 @@ h1, h2, h3, h4, h5, h6 p, a span, img, li, ul, i,article {
 
 .item__gallery__slider__active {
    max-width: 570px;
-   height: 385px;
+   max-height: 385px;
    background: #de6441;
    border: 2.5px solid #424242;
    z-index: 2;
@@ -578,7 +578,7 @@ h1, h2, h3, h4, h5, h6 p, a span, img, li, ul, i,article {
 }
 
 .item__gallery__slider {
-   width: 395px;
+   max-width: 395px;
    max-height: 268px;
    background: #de6441;
    border: 2.5px solid #424242;

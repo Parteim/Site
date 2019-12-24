@@ -8,5 +8,4 @@ urlpatterns = [
     path('news/', views.ShowNews.as_view(), name='news'),
     path('recipe/<int:pk>/', views.SingleShowRecipe.as_view(), name='recipe-instance'),
     path('recipe/', views.ShowRecipe.as_view(), name='recipe'),
-    path('about_us/', views.about_us, name='about-us'),
 ]

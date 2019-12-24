@@ -99,6 +99,10 @@
             .item__gallery__slider__active {
                 width: 95%;
             }
+
+            .news__title {
+                text-align: center;
+            }
         }
     
     
@@ -129,6 +133,10 @@
         @media (max-width: 450px) {
             .recipe__img_box {
                 max-width: 98%;
+            }
+
+            .recipe__title {
+                text-align: center;
             }
         }
     

@@ -7,22 +7,22 @@ let count = 0;
 let countTwo = 0;
 let indicate = false;
 
-function startSlide(){
-    if (item.length  > 3 && indicate == false){
-        let callSlideFunc = setInterval(function  slideWinners(){
-            console.log(count);
-            let itemWinners = winnersSlider.children[0];
-            count += 5;
-            winnersSlider.style.transform = 'translateX(' + -count + 'px)';
-            if (count >= ((item.length -3) * 390)) {
-                count = 0;
-            }
-            if (indicate == true){
-                clearInterval(callSlideFunc);
-            }
-        }, 80);
-    }
-}
+//function startSlide(){
+//    if (item.length  > 3 && indicate == false){
+//        let callSlideFunc = setInterval(function  slideWinners(){
+//            console.log(count);
+//            let itemWinners = winnersSlider.children[0];
+//            count += 5;
+//            winnersSlider.style.transform = 'translateX(' + -count + 'px)';
+//            if (count >= ((item.length -3) * 390)) {
+//                count = 0;
+//            }
+//            if (indicate == true){
+//                clearInterval(callSlideFunc);
+//            }
+//        }, 80);
+//    }
+//}
 
 startSlide();
 

@@ -5,9 +5,14 @@ from gallery.models import Photo
 
 
 def ShowMainPage(request):
+    ads = None
     photos = Photo.objects.all().order_by('-date')
+
+    if Ads.objects.all().count() != 0:
+        ads = Ads.objects.all().order_by('-date')[0]
+
     data = {
-        'ads': Ads.objects.all().order_by('-date')[0],
+        'ads': ads,
         'photo_one': photos[0],
         'photo_two': photos[1],
         'photo_three': photos[2],
@@ -61,10 +66,3 @@ class SingleShowRecipe(DetailView):
         ctx = super(SingleShowRecipe, self).get_context_data(**kwargs)
         ctx['title'] = Recipe.objects.filter(pk=self.kwargs['pk']).first()
         return ctx
-
-
-def about_us(request):
-    data = {
-        'title': 'Информация',
-    }
-    return render(request, 'home/about_us.html', data)

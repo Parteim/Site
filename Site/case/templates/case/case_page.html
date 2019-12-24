@@ -1,0 +1,56 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/forum.css'%}">
+<link rel="stylesheet" href="{% static 'main/case.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/forum.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/case.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__forum">Кейсы</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="Case">
+
+    <div class="container">
+
+        {% for case_item in Case %}
+
+        <div class="case__item">
+
+            <h2 class="title__case">{{ case_item.title }}</h2>
+
+            <div class="case__content">
+
+                <p class="case__date">{{ case_item.date }}</p>
+                <i class="fas fa-suitcase"></i>
+                <h3 class="case__executor">Исполнитель: <span>{{ case_item.executor }}</span></h3>
+                <h3 class="case__costumer">Заказчик: <span>{{ case_item.customer }}</span></h3>
+                <p class="case__description">{{ case_item.description }}</p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block for_scripts %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

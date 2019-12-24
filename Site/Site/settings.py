@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'gallery.apps.GalleryConfig',
     'conferences.apps.ConferencesConfig',
     'world_skills.apps.WorldSkillsConfig',
+    'exam.apps.ExamConfig',
+    'case.apps.CaseConfig',
 ]
 
 MIDDLEWARE = [

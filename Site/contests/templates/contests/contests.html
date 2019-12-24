@@ -52,7 +52,9 @@
 
                     <div class="box__img__contests">
                         <img class="contests__img" src="{{ contest.img.url }}" alt="{{ contest.title }}">
-                        <p class="contest__start__day">{{ contest.date }}</p>
+                        <div class="date_start_contest">
+                            <p>{{ contest.date }}</p>
+                        </div>
                         <div class="btn__contests__nav__box">
                             <a target="_blank" href="{{ contest.full_information_about_contest.url }}"
                                class="btn__contests__item">Больше <span> информации</span>
@@ -88,35 +90,7 @@
     </div>
 </section>
 
-<section class="Winners">
-
-    <div class="container winners__main__box show__box">
-        <h2 class="title__winners">Победители</h2>
-        <!--        <div class="show__box">-->
-
-        <div class="winners__box" id="winners__box">
-
-            {% for winner in winners %}
-            <div class="winners__item">
-                <img class="winners__image" src="{{ winner.user.profile.img.url }}" alt="winners">
-                <div class="winners__info">
-                    <h3 class="winners__name">{{ winner.user.first_name }} {{ winner.user.last_name }}</h3>
-                    <p class="winners__description">
-                        Победитель конкурса
-                        "{{ winner.contest.title }}"
-                    </p>
-                </div>
-            </div>
-
-            {% endfor %}
-        </div>
-
-        <!--        </div>-->
-    </div>
-
-
-</section>
-
+{% if past_contests.count != 0 %}
 
 <section class="Past__contests">
 
@@ -152,6 +126,8 @@
     </div>
 
 </section>
+
+{% endif %}
 
 {% block for_scripts %}
 <script src="{% static 'js/contests.js' %}" befer></script>

@@ -9,6 +9,6 @@ for (let i= 0; i < emailLabel.length; i++) {
         emailLabel[i].innerHTML = 'E-mail';
     }
     else if (emailLabel[i].innerHTML == 'Who is:') {
-        emailLabel[i].innerHTML = 'Кем являетесь';
+        emailLabel[i].innerHTML = 'Вы:';
     }
 }

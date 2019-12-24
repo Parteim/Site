@@ -5,7 +5,10 @@ from django.views.generic import ListView, DetailView
 
 def conferences(request):
     upcoming_conference = Conferences.objects.filter(status='Предстоящий')
-    past_conference = Conferences.objects.order_by('-date').filter(status='Прошедший').first()
+    past_conference = None
+
+    if Conferences.objects.all().count != 0:
+        past_conference = Conferences.objects.order_by('-date').filter(status='Прошедший').first()
 
     data = {
         'upcoming_conference': upcoming_conference,

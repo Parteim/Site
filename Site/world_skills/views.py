@@ -10,15 +10,15 @@ class WorldSkills(View):
     def get(self, request):
         ctx_data = {
             'title': 'WorldSkills',
-            'Contests': WorldSkillsContest.objects.all().filter(status='Предстоящий'),
+            'contest': WorldSkillsContest.objects.all().filter(status='Предстоящий').first(),
             'Past_contest': WorldSkillsContest.objects.all().filter(status='Прошедший').order_by('-date').first(),
         }
-        return render(request, 'world_skills/world_skills.html', ctx_data)
+        return render(request, 'world_skills\world_skills.html', ctx_data)
 
 
 class InstanceWorldSkills(DetailView):
     model = WorldSkillsContest
-    template_name = 'world_skills/instance_contest_world_skills.html'
+    template_name = 'world_skills\instance_contest_world_skills.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(InstanceWorldSkills, self).get_context_data(**kwargs)

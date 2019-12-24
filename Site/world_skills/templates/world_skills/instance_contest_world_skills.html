@@ -7,19 +7,73 @@
 {% endblock %}
 
 
-{% block title__section %}
-
-{% endblock %}
-
-
 {% block main_section %}
+
+<div id="reveal__img">
+
+    <img class="img_gallery__reveal" src="{{ photo.img.url }}" alt="{{ item.title }}">
+
+</div>
 
 
 <section class="WorldSkills">
 
-<p>hi</p>
+    <div class="container">
+
+        <div class="title_and_date">
+
+            <h1 class="title_contest">{{ worldskillscontest.title }}</h1>
+            <p class="date_contest">{{worldskillscontest.date}}</p>
+        </div>
+
+        <div class="img_and_description">
+
+            <p class="description_contest">
+                {{worldskillscontest.description}}
+            </p>
+            <img class="contest_image" src="{{worldskillscontest.img.url}}" alt="{{worldskillscontest.title}}">
+        </div>
+
+        <a href="{{ worldskillscontest.data_about_contest.url }}" target="_blank" class="all_info_about_contest_file">
+            all information about contest
+        </a>
+
+    </div>
 
 </section>
 
 
+{% if worldskillscontest.status == 'Прошедший' %}
+
+
+<section class="Past_contest">
+
+    <div class="container">
+
+        <div class="line"></div>
+
+        <p class="title_for_past_contest">
+            Photo from the past contest
+        </p>
+
+        <div class="images_box">
+
+            {% for photo in worldskillscontest.pastworldskillscontest_set.all %}
+
+            <div class="gallery__item">
+                <img src="{{ photo.gallery_img.url }}" alt="" class="img_gallery">
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endif %}
+
+<script src="{% static 'js/gallery.js' %}" befer></script>
 {% endblock %}

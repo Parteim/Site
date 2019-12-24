@@ -44,10 +44,13 @@
                     </li>
                     <li class="item__main__nav"><a class="item__main__nav__link"
                                                    href="{% url 'contests' %}">Конкурсы</a></li>
-                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'conferences' %}">Конференции</a></li>
-                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'world-skills' %}">worldskills</a></li>
-                    <li class="item__main__nav"><a class="item__main__nav__link" href="#">Экзамены</a></li>
-                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'about-us' %}">Информация</a></li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'conferences' %}">Конференции</a>
+                    </li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'world-skills' %}">worldskills</a>
+                    </li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'exam' %}">Экзамены</a>
+                    </li>
+                    <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'case' %}">Кейсы</a></li>
                     <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'forum' %}">Форум</a></li>
                     <li class="item__main__nav"><a class="item__main__nav__link" href="{% url 'gallery' %}">Галерея</a>
                     </li>
@@ -62,7 +65,7 @@
     </div>
 
     <div class="header__main__title__box">
-        <h1 class="header__main__title">Main title</h1>
+        <h1 class="header__main__title">Будущее за СПО</h1>
     </div>
 
 </header>
@@ -72,10 +75,11 @@
 </div>
 
 
+{% if ads != None%}
+
 <section class="Ads__box">
     <article class="container ads">
 
-        {% if ads %}
         <div class="box__title">
             <div class="ads__title__small__line"></div>
             <h2 class="ads__title">{{ ads.title }}</h2>
@@ -89,10 +93,11 @@
                 <img class="ads__image" src="{{ ads.img.url }}" alt="ads_img">
             </div>
         </div>
-        {% endif %}
 
     </article>
 </section>
+
+{% endif %}
 
 
 <section class="News">
@@ -215,8 +220,8 @@
                 <li class="site__map__link"><a href="{% url 'contests' %}">Конкурсы</a></li>
                 <li class="site__map__link"><a href="{% url 'conferences' %}">Конференции</a></li>
                 <li class="site__map__link"><a href="{% url 'world-skills' %}">worldskills</a></li>
-                <li class="site__map__link"><a href="#">Экзамены</a></li>
-                <li class="site__map__link"><a href="{% url 'about-us' %}">Информация</a></li>
+                <li class="site__map__link"><a href="{% url 'exam' %}">Экзамены</a></li>
+                <li class="site__map__link"><a href="{% url 'case' %}">Кейсы</a></li>
                 <li class="site__map__link"><a href="{% url 'forum' %}">Форум</a></li>
                 <li class="site__map__link"><a href="{% url 'gallery' %}">Галерея</a></li>
             </ul>

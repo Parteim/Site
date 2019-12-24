@@ -1,0 +1,31 @@
+{% extends 'home/main.html' %}
+{% load static %}
+
+{% block link__css %}
+<link rel="stylesheet" href="{% static 'main/exam.css'%}">
+<link rel="stylesheet" href="{% static 'main/adaptive_CSS/exam.css'%}">
+{% endblock %}
+
+
+{% block title__section %}
+
+<div>
+    <h1 class="header__main__title__exam">Экзамены</h1>
+</div>
+
+{% endblock %}
+
+
+{% block main_section %}
+
+
+<section class="Exam">
+
+
+</section>
+
+{% endblock %}
+
+{% block for_scripts %}
+<script src="{% static 'js/forum.js' %}"></script>
+{% endblock %}

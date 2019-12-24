@@ -16,7 +16,6 @@ def ShowContestsPage(request):
         Participants.objects.create(contest=contest, user=request.user)
     data = {
         'participant_form': ParticipantForm(),
-        'winners': Participants.objects.all().filter(status='Победитель'),
         'past_contests': Contests.objects.all().filter(status='Прошедший').order_by('-date')[:5],
         'contests': Contests.objects.all().filter(status='Предстоящий').order_by('-date'),
         'title': 'Конкурсы',

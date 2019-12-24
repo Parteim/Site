@@ -10,7 +10,7 @@
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-55%, -50%);
+    transform: translate(-50%, -50%);
     font-size: 50px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -238,17 +238,24 @@
     transition: all .2s;
  }
  
- .contest__start__day {
-    top: -10px;
-    left: 5px;
+ .date_start_contest {
+    top: 0;
     text-transform: uppercase;
     color: #252424;
     font-size: 17px;
     position: absolute;
     letter-spacing: 1px;
     font-weight: 700;
+    width: 100%;
+
+    backdrop-filter: blur(1.5px);
+    
     z-index: 2;
  }
+
+.date_start_contest p {
+   margin: 10px;
+}
  
  .Winners {
     padding: 100px 0;

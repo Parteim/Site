@@ -18,5 +18,4 @@ class Gallery(ListView):
         ctx = super(Gallery, self).get_context_data(**kwargs)
         ctx['title'] = 'Галерея'
         ctx['contest_photo'] = PastWorldSkillsContest.objects.all()
-        print(ctx)
         return ctx
